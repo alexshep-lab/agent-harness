@@ -3,6 +3,14 @@
 > with placeholders; structure and content otherwise verbatim). The **Known
 > gotchas** section is the point: every production incident becomes a permanent
 > constraint that agents read before touching anything.
+>
+> **TL;DR (EN).** Codebase context of a 17-app Django 5.2 conference platform
+> run solo in production: stack, production topology (VPS, Gunicorn/Nginx,
+> systemd auto-restart policy, cron backups with rotation), per-app
+> architecture map, deploy commands — and hard-won constraints, e.g.
+> PostgreSQL is blacklisted from unattended upgrades because an auto-upgrade
+> once took the database down (incident 2026-05-22), with the restart policy
+> pinned to the versioned systemd unit, not the oneshot meta-unit.
 
 # Sphere — Система управления конференциями
 

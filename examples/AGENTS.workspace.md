@@ -1,6 +1,14 @@
 > **Sanitized example.** This is the real root `AGENTS.md` of my workspace with
 > personal spheres, people map and Todoist IDs removed. Language is Russian —
 > that's the workspace's working language; agents don't care.
+>
+> **TL;DR (EN).** Root context file of the whole workspace. §0 — who the user
+> is and the two sources of truth (files + Todoist over MCP); §1 — rules of
+> engagement for any agent (tasks only via Todoist, a "stopper rule" against
+> overloading the user, no file reorganization during work sessions, one
+> folder = one self-contained context); §2 — PARA folder map; §3 — folder ↔
+> Todoist-project mapping; §4 — resources; §5 — maintenance rules for this
+> file itself.
 
 # AGENTS.md — Рабочее пространство (корневой контекст)
 

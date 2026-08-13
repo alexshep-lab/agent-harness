@@ -1,4 +1,3 @@
-Published 2026-08 as a sanitized snapshot of my private workspace; every date and incident inside is from the live system
 # How I actually work with agents
 
 Working notes and real artifacts from an agent-driven setup that currently runs
@@ -6,9 +5,11 @@ five parallel workstreams: two production web products, an R&D program for a
 national hydropower operator, a PhD, and a stack of personal tools.
 One person, no team, no review queue — agents fill every role a team would.
 
-Everything in this repo is real and in daily use. Client names, stakeholder
-maps, server IPs and task-tracker IDs are sanitized (`<placeholders>`);
-structure and content are otherwise verbatim.
+**Published August 2026 as a sanitized snapshot of my private workspace** —
+every date and incident inside comes from the live system, which stays
+private because it names clients and stakeholders. Client names, stakeholder
+maps, server IPs and task-tracker IDs are replaced with `<placeholders>`;
+structure and content are otherwise verbatim and in daily use.
 
 ## The one idea everything hangs on: AI-portability
 
@@ -58,6 +59,8 @@ See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
   round report. Then another round on the fresh state, until rounds come back
   clean. A recent solver release took 6 documented rounds (round 1 alone:
   a class of path-traversal issues closed + regression tests for each).
+  The loop is agents reviewing agents and closes in hours, not days — there
+  is no human review gate anywhere.
 - **Parallel agents via worktrees** — independent features proceed in isolated
   git worktrees while I do something else entirely.
 - **Cross-tool by design** — the same folder context drives Claude Code/Cowork,
@@ -72,11 +75,11 @@ See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
 - FEA web platform (proprietary): two Django services, ANSYS integration
   (APDL + DPF), Three.js 3D field visualization, Redis/RQ queues, hardware-bound
   licensing.
-- Public side projects, agent-built:
+- Public side project, agent-built:
   [video-feed](https://github.com/alexshep-lab/video-feed) — self-hosted video
-  streaming server (FastAPI + React, FFmpeg/NVENC pipeline, HLS);
-  [alexshep-downloadbot](https://github.com/alexshep-lab/alexshep-downloadbot) —
-  Telegram media-download bot (aiogram 3 + yt-dlp).
+  streaming server (FastAPI + React, FFmpeg/NVENC pipeline, HLS). Its
+  `CLAUDE.md` is a live, unsanitized example of the per-codebase context this
+  repo describes.
 - Research side: physics-informed ML (LSTM/Transformer over a physical water
   balance model) + CVaR optimization on forecast ensembles — PhD in progress,
   which is where the ML depth behind the engineering comes from.

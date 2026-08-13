@@ -1,3 +1,7 @@
+> **TL;DR (EN).** The template every new project folder starts from: what the
+> project is, folder map, conventions, current status, and an explicit
+> "do not touch" list. Russian — the workspace's working language.
+
 # AGENTS.md — <Название проекта/продукта>
 
 Этот файл — для AI-агентов (Claude Code, Codex, Cursor, Gemini, NotebookLM).

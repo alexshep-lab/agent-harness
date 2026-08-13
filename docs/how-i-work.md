@@ -29,7 +29,8 @@ The pattern that replaced "nobody reviews my code" as a solo developer:
    explicitly lists *the limitations of its own review* — what it could not
    verify and why.
 3. Next round runs against the new state. Repeat until a round comes back
-   clean.
+   clean. The whole loop is agents reviewing agents and closes in hours, not
+   days — there is no human review gate anywhere.
 
 Real numbers from one proprietary release: a solver Linux-port review ran
 **6 documented rounds**; round 1 closed a family of path-traversal issues
