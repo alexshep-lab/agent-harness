@@ -1,3 +1,4 @@
+Published 2026-08 as a sanitized snapshot of my private workspace; every date and incident inside is from the live system
 # How I actually work with agents
 
 Working notes and real artifacts from an agent-driven setup that currently runs
