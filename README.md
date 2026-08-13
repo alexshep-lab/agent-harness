@@ -70,7 +70,7 @@ See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
 ## Receipts
 
 - Conference-management platform: **17 Django apps**, built solo, in production
-  through a live 6-day industry conference (registration, CfP, scheduling,
+  through a live 5-day industry conference (registration, CfP, scheduling,
   dynamic form builder with conditional logic, CRM, GDPR-analog compliance).
 - FEA web platform (proprietary): two Django services, ANSYS integration
   (APDL + DPF), Three.js 3D field visualization, Redis/RQ queues, hardware-bound
