@@ -22,15 +22,23 @@ context file gets patched instead.
 
 The pattern that replaced "nobody reviews my code" as a solo developer:
 
-1. A reviewer agent audits the release scope with a written focus (security,
-   error handling, cross-platform readiness, …).
-2. It fixes what is safely fixable outside core logic, writes regression tests
-   for each fix, and files a round report (`REVIEW_<scope>_ROUND<n>.md`) that
-   explicitly lists *the limitations of its own review* — what it could not
-   verify and why.
-3. Next round runs against the new state. Repeat until a round comes back
-   clean. The whole loop is agents reviewing agents and closes in hours, not
-   days — there is no human review gate anywhere.
+1. A fresh reviewer agent audits the release scope with a written focus
+   (security, error handling, cross-platform readiness, …) and files a round
+   report (`REVIEW_<scope>_ROUND<n>.md`) that explicitly lists *the
+   limitations of its own review* — what it could not verify and why. It
+   diagnoses only.
+2. The working session fixes what lies inside the agreed scope and writes a
+   regression test per fix. Findings that change behaviour, scope or approach
+   come to me as decisions.
+3. The next round — a new fresh reviewer — runs against the new state. Repeat
+   until a round comes back clean.
+
+*Revised October 2026.* Until then the reviewer also fixed its own findings and
+wrote the tests for its own fixes — partial self-verification — and I claimed
+"no human review gate anywhere". The gates are now deliberate and few. The same
+pattern for documents is [skills/doc-review](../skills/doc-review/SKILL.md);
+its first pilot showed why the split matters
+([case study](case-studies/2026-10-article-review.md)).
 
 Real numbers from one proprietary release: a solver Linux-port review ran
 **6 documented rounds**; round 1 closed a family of path-traversal issues
@@ -53,9 +61,10 @@ re-discovers an incident the hard way.
 
 Private skills carry what code context can't: who the stakeholders are and how
 they behave in meetings, which terminology is banned in which documents and
-why, how to prepare me for a negotiation. Their trigger descriptions are
-written broadly on purpose ("even casual mentions of 'the meeting' should
-trigger this") — a skill that doesn't fire is worse than no skill.
+why, how to prepare me for a negotiation. In August their trigger descriptions
+were written broadly on purpose ("even casual mentions of 'the meeting' should
+trigger this"). With current frontier models that over-triggers: descriptions
+are now plain and specific, and the skill body does the work.
 
 ## Cross-tool portability as a test
 

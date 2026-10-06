@@ -11,6 +11,29 @@ private because it names clients and stakeholders. Client names, stakeholder
 maps, server IPs and task-tracker IDs are replaced with `<placeholders>`;
 structure and content are otherwise verbatim and in daily use.
 
+## October 2026: from snapshot to working harness
+
+The August snapshot described the setup; this repo is now becoming its source — skills and
+reviewer prompts that I install and run, with a case study per component. Inspired by
+[pavel-molyanov/molyanov-ai-dev](https://github.com/pavel-molyanov/molyanov-ai-dev) (process in
+skills, fresh-context reviewers, evidence-gated findings), adapted for heavy, domain-bound work —
+two products, a PhD and engineering R&D — where the bottleneck is correctness and my attention,
+not throughput.
+
+- **[skills/doc-review](skills/doc-review/SKILL.md)** — independent review of documents that make
+  factual claims, by fresh reviewers in parallel lanes (numbers / frame / purpose), checked against
+  the project's sources of truth. First pilot:
+  [case study](docs/case-studies/2026-10-article-review.md).
+- **Project contract** in [templates/AGENTS.template.md](templates/AGENTS.template.md): ranked
+  sources of truth, reliability constraints, how to verify, accepted decisions — what reviewers
+  check against.
+
+What changed in my thinking since August, and is corrected below: reviewers **diagnose and do not
+fix their own findings**; there **are** human gates, deliberately few (approving a plan, deciding
+on findings that need a decision); context files hold rules and routes, **not current status**;
+skill triggers are plain and specific — aggressive "fire on any mention" descriptions over-trigger
+with current frontier models.
+
 ## The one idea everything hangs on: AI-portability
 
 **Every folder must be a self-contained context.** A fresh agent — Claude Code /
@@ -27,7 +50,9 @@ What it looks like in practice:
 
 - **`AGENTS.md` at every level.** Root workspace → sphere (products / research /
   R&D / personal) → individual project. Each: a TL;DR for the agent, folder map,
-  conventions, current reality, and explicit "do not touch" lists.
+  conventions, the project contract (sources of truth, reliability constraints,
+  how to verify, accepted decisions) and explicit "do not touch" lists. The root
+  file is a short context router: it says where to look, not what is going on.
   → [examples/AGENTS.workspace.md](examples/AGENTS.workspace.md) (sanitized root file),
   [templates/AGENTS.template.md](templates/AGENTS.template.md) (the template new projects start from).
 - **`CLAUDE.md` per codebase** — architecture, deploy topology, and a *known
@@ -38,29 +63,31 @@ What it looks like in practice:
 - **`NOTEBOOK_LLM.md` per Django app** — module-level context files inside each
   application of the larger codebases, so an agent working on one module loads
   only that module's contract.
-- **Skills with aggressively tuned triggers.** My private skills encode
+- **Skills as compressed judgment.** My private skills encode
   stakeholder maps, negotiation context and terminology guardrails (e.g. "term X
-  is reserved for the dissertation — in R&D documents always say Y instead"),
-  with trigger descriptions written so the skill fires on casual mentions, not
-  just exact keywords. Real ones stay private (they contain names and client
+  is reserved for the dissertation — in R&D documents always say Y instead").
+  In August their triggers were tuned aggressively to fire on casual mentions;
+  with current models that over-triggers, so descriptions are now plain and
+  specific. Real ones stay private (they contain names and client
   politics); the structure is shown in
   [skills/project-context-example/SKILL.md](skills/project-context-example/SKILL.md).
 - **One source of truth for tasks** — Todoist over MCP. Agents read and write
-  the same task tree I use on my phone; markdown TODO files are banned. The
-  root AGENTS.md maps every folder to its Todoist project so any agent can file
-  work where it belongs.
+  the same task tree I use on my phone; markdown TODO files are banned. Project
+  names and IDs live in Todoist and in project-local context, not in the root
+  file.
 
 ## What agents actually do here, day to day
 
 See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
 
 - **Multi-round adversarial review.** Before a release, a reviewer agent audits
-  the diff, fixes what it can safely fix, writes regression tests, and files a
-  round report. Then another round on the fresh state, until rounds come back
-  clean. A recent solver release took 6 documented rounds (round 1 alone:
-  a class of path-traversal issues closed + regression tests for each).
-  The loop is agents reviewing agents and closes in hours, not days — there
-  is no human review gate anywhere.
+  the diff and files a round report; another round runs on the fresh state,
+  until rounds come back clean. A recent solver release took 6 documented
+  rounds (round 1 alone: a class of path-traversal issues closed + regression
+  tests for each). Until October 2026 the reviewer also fixed what it found —
+  partial self-verification. Now the roles are split: a fresh reviewer
+  diagnoses, the working session fixes within the agreed scope, the next fresh
+  reviewer verifies, and findings that need a decision come to me.
 - **Parallel agents via worktrees** — independent features proceed in isolated
   git worktrees while I do something else entirely.
 - **Cross-tool by design** — the same folder context drives Claude Code/Cowork,
