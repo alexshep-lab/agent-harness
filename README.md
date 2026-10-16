@@ -1,8 +1,8 @@
 # How I actually work with agents
 
 Working notes and real artifacts from an agent-driven setup that currently runs
-five parallel workstreams: two production web products, an R&D program for a
-national hydropower operator, a PhD, and a stack of personal tools.
+five parallel workstreams: two production web products, an engineering R&D program,
+a PhD, and a stack of personal tools.
 One person, no team, no review queue — agents fill every role a team would.
 
 **Published August 2026 as a sanitized snapshot of my private workspace** —

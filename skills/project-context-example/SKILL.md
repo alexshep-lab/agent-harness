@@ -1,6 +1,6 @@
 ---
 name: project-context-example
-description: "SANITIZED EXAMPLE of a private project-context skill. Real version: context of an R&D project for a national energy operator. Use this skill ALWAYS when the user mentions: <project codename>, <client name>, <system name>, <domain terms: cascade, water balance, short-term planning>, <stakeholder surnames>, meeting preparation for this project, analysis of the project's ToR, or working with meeting transcripts. Trigger even on casual mentions of 'the meeting', 'the R&D', 'the ToR' — a skill that doesn't fire is worse than no skill."
+description: "SANITIZED EXAMPLE of a private project-context skill. Real version: context of an industrial R&D project. Use this skill ALWAYS when the user mentions: <project codename>, <client name>, <system name>, <domain terms: cascade, water balance, short-term planning>, <stakeholder surnames>, meeting preparation for this project, analysis of the project's ToR, or working with meeting transcripts. Trigger even on casual mentions of 'the meeting', 'the R&D', 'the ToR' — a skill that doesn't fire is worse than no skill."
 ---
 
 > **Note for readers of this repo.** My real skills of this type stay private —
