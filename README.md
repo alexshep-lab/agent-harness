@@ -3,7 +3,8 @@
 Working notes and real artifacts from an agent-driven setup that currently runs
 five parallel workstreams: two production web products, an engineering R&D program,
 a PhD, and a stack of personal tools.
-One person, no team, no review queue — agents fill every role a team would.
+No team around me and no human review queue: one product is mine alone, the
+other has one more developer — agents fill the roles a team would.
 
 **Published August 2026 as a sanitized snapshot of my private workspace** —
 every date and incident inside comes from the live system, which stays
@@ -82,10 +83,11 @@ See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
 
 - **Multi-round adversarial review.** Before a release, a reviewer agent audits
   the diff and files a round report; another round runs on the fresh state,
-  until rounds come back clean. A recent solver release took 6 documented
-  rounds (round 1 alone: a class of path-traversal issues closed + regression
-  tests for each). Until October 2026 the reviewer also fixed what it found —
-  partial self-verification. Now the roles are split: a fresh reviewer
+  until rounds come back clean. A spring web release took 6 documented rounds
+  (round 1 alone: an SQL injection and missing access checks); the solver's
+  Linux port took 4 (round 1: a class of path-traversal issues closed +
+  regression tests for each). Until October 2026 the reviewer sometimes also
+  fixed what it found — partial self-verification. Now the roles are split: a fresh reviewer
   diagnoses, the working session fixes within the agreed scope, the next fresh
   reviewer verifies, and findings that need a decision come to me.
 - **Parallel agents via worktrees** — independent features proceed in isolated
@@ -99,14 +101,16 @@ See [docs/how-i-work.md](docs/how-i-work.md) for the full loop. Highlights:
 - Conference-management platform: **17 Django apps**, built solo, in production
   through a live 5-day industry conference (registration, CfP, scheduling,
   dynamic form builder with conditional logic, CRM, GDPR-analog compliance).
-- FEA web platform (proprietary): two Django services, ANSYS integration
-  (APDL + DPF), Three.js 3D field visualization, Redis/RQ queues, hardware-bound
-  licensing.
+- FEA web platform (proprietary, two developers; my part is the backend around
+  an existing JS client): two Django services (web + solver over REST), ANSYS
+  integration (APDL + DPF), solver ported from Windows to Linux, on-premise
+  delivery to two industry customers, hardware-bound licensing.
 - Public side project, agent-built:
   [video-feed](https://github.com/alexshep-lab/video-feed) — self-hosted video
   streaming server (FastAPI + React, FFmpeg/NVENC pipeline, HLS). Its
   `CLAUDE.md` is a live, unsanitized example of the per-codebase context this
   repo describes.
-- Research side: physics-informed ML (LSTM/Transformer over a physical water
-  balance model) + CVaR optimization on forecast ensembles — PhD in progress,
-  which is where the ML depth behind the engineering comes from.
+- Research side: PhD in progress — a methodology for assessing the
+  consequences of operating decisions for hydropower reservoirs in Russia and
+  for plan-vs-actual analysis under inflow and water-balance uncertainty, on
+  operational data.

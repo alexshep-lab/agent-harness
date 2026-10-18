@@ -20,7 +20,7 @@ context file gets patched instead.
 
 ## Review: adversarial, multi-round, until dry
 
-The pattern that replaced "nobody reviews my code" as a solo developer:
+The pattern I use instead of a human review queue, which I don't have:
 
 1. A fresh reviewer agent audits the release scope with a written focus
    (security, error handling, cross-platform readiness, …) and files a round
@@ -33,18 +33,20 @@ The pattern that replaced "nobody reviews my code" as a solo developer:
 3. The next round — a new fresh reviewer — runs against the new state. Repeat
    until a round comes back clean.
 
-*Revised October 2026.* Until then the reviewer also fixed its own findings and
+*Revised October 2026.* Until then the reviewer in some runs also fixed its own findings and
 wrote the tests for its own fixes — partial self-verification — and I claimed
 "no human review gate anywhere". The gates are now deliberate and few. The same
 pattern for documents is [skills/doc-review](../skills/doc-review/SKILL.md);
 its first pilot showed why the split matters
 ([case study](case-studies/2026-10-article-review.md)).
 
-Real numbers from one proprietary release: a solver Linux-port review ran
-**6 documented rounds**; round 1 closed a family of path-traversal issues
-(model-name validation, root-directory deletion guards) and added a regression
-test per fix. A parallel release branch took 3 rounds. The round reports live
-in the repo permanently — they are context for the next agent.
+Real numbers from one proprietary product: the spring web release ran
+**6 documented rounds** (round 1: an SQL injection and missing access checks).
+The solver's Linux port ran 4; its round 1 closed a family of path-traversal
+issues (model-name validation, root-directory deletion guards) and added a
+regression test per fix. Automating the solver's environment and secrets took
+3 rounds. The round reports live in the repo permanently — they are context for
+the next agent.
 
 ## Incidents become constraints
 
